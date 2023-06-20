@@ -12,7 +12,7 @@ public class LocationController : ControllerBase
     };
 
     private static readonly string[] Continent = new[]
-{
+    {
         "Africa", "Antarctica", "Asia", "Australia", "Oceania", "Europe", "North America", "South America"
     };
 
@@ -24,7 +24,7 @@ public class LocationController : ControllerBase
     }
 
     [HttpGet(Name = "GetLocation")]
-    public IEnumerable<Location> Get()
+    public IEnumerable<Location> GetLocation()
     {
         return Enumerable.Range(1, 5).Select(index => new Location
         {
@@ -33,5 +33,46 @@ public class LocationController : ControllerBase
             Continent = Continent[Random.Shared.Next(Continent.Length)],
         })
         .ToArray();
+    }
+    [HttpPost("robot/test")]
+    public IActionResult Post([FromBody] RequestModel model)
+    {
+        // Process the model received from the request
+        // ...
+
+        // Create the response object
+        var response = new ResponseModel
+        {
+            Response = model,
+            Message = "Post request successful"
+        };
+
+        // Return the response as JSON
+        return Ok(response);
+    }
+
+    [HttpPost("robot/test2/{id}")]
+    public IActionResult Get(int id)
+    {
+        // Create the response object
+        var response = new ResponseModel
+        {
+            Response = id,
+            Message = "Get request successful"
+        };
+
+        // Return the response as JSON
+        return Ok(response);
+    }
+    public class RequestModel
+    {
+        public string Name { get; set; }
+        public int Age { get; set; }
+    }
+
+    public class ResponseModel
+    {
+        public object Response { get; set; }
+        public string Message { get; set; }
     }
 }
