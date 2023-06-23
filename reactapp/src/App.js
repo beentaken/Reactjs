@@ -26,7 +26,7 @@ export default class App extends Component {
                 </thead>
                 <tbody>
                     {local.map(local =>
-                        <tr key={local.data}>
+                        <tr key={local.date}>
                             <td>{local.date}</td>
                             <td>{local.country}</td>
                             <td>{local.continent}</td>
@@ -64,47 +64,44 @@ export default class App extends Component {
         );
     }
 
-//    static renderDataTable({ forecast, local }) {
-//    return (
-//        <table className='table table-striped' aria-labelledby="tabelLabel">
-//            <thead>
-//                <tr>
-//                    <th>Date</th>
-//                    <th>Country</th>
-//                    <th>Continent</th>
-//                    <th>Population</th>
-//                    <th>Summary</th>
-//                    <th>Date</th>
-//                    <th>Temp. (C)</th>
-//                    <th>Temp. (F)</th>
-//                    <th>Summary</th> 
-//                </tr>
-//            </thead>
-//            <tbody>
-//                {data.map(item => (
-//                    <tr key={item.date}>
-//                        {isLocation ? (
-//                            <>
-//                                <td>{item.date}</td>
-//                                <td>{item.country}</td>
-//                                <td>{item.continent}</td>
-//                                <td>{item.population}</td>
-//                                <td>{item.summary}</td>
-//                            </>
-//                        ) : (
-//                            <>
-//                                <td>{item.date}</td>
-//                                <td>{item.temperatureC}</td>
-//                                <td>{item.temperatureF}</td>
-//                                <td>{item.summary}</td>
-//                            </>
-//                        )}
-//                    </tr>
-//                ))}
-//            </tbody>
-//        </table>
-//    );
-//}
+    static renderDataTable( forecasts, local ) {
+        return (
+            <table className='table table-striped' aria-labelledby="tabelLabel">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Temp. (C)</th>
+                        <th>Temp. (F)</th>
+                        <th>Summary</th>
+                        <th>Date</th>
+                        <th>Country</th>
+                        <th>Continent</th>
+                        <th>Population</th>
+                        <th>Summary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {forecasts.map(forecast =>
+                        <tr key={forecast.date}>
+                            <td>{forecast.date}</td>
+                            <td>{forecast.temperatureC}</td>
+                            <td>{forecast.temperatureF}</td>
+                            <td>{forecast.summary}</td>
+                        </tr>
+                    )}
+                    {local.map(local =>
+                        <tr key={local.data}>
+                            <td>{local.date}</td>
+                            <td>{local.country}</td>
+                            <td>{local.continent}</td>
+                            <td>{local.population}</td>
+                            <td>{local.summary}</td>
+                        </tr>
+                    )}
+                </tbody>
+            </table>
+        );
+    }
 
     render() {
         let contents = this.state.loading ? (
@@ -119,10 +116,9 @@ export default class App extends Component {
             <>
                 {App.renderForecastsTable(this.state.forecasts)}
                 {App.renderLocationTable(this.state.local)}
-               
+                {App.renderDataTable(this.state.forecasts, this.state.local)}
             </>
-        );
-       /* { App.renderDataTable(this.state.forecasts, this.state.local) }*/
+        );     
         return (
             <div>
                 <h1 id="tabelLabel">Weather forecast Location</h1>
