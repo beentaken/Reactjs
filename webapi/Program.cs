@@ -57,7 +57,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseAuthentication();
-app.UseAuthorization();
+
 
 app.UseHttpsRedirection();
 
@@ -66,3 +66,16 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+app.UseRouting();
+
+var webSocketOptions = new WebSocketOptions
+{
+    KeepAliveInterval = TimeSpan.FromSeconds(20)
+};
+
+app.UseWebSockets(webSocketOptions);
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});

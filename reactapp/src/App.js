@@ -5,14 +5,13 @@ export default class App extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { forecasts: [], loading: true };
-        this.state = { local: [], loading: true };
+        this.state = { forecasts: [], local: [], loading: true };
     }
 
     componentDidMount() {
-      //  this.populateWeatherData();
-      //  this.populateLocationData();
-        this.populateData();
+        this.populateWeatherData();
+        this.populateLocationData();
+      //  this.populateData();
         
     }
 
@@ -123,10 +122,10 @@ export default class App extends Component {
             <>
                 {App.renderForecastsTable(this.state.forecasts)}
                 {App.renderLocationTable(this.state.local)}
-                {App.renderDataTable(this.state.forecasts, this.state.local)}
+               
             </>
         );
-
+       /* { App.renderDataTable(this.state.forecasts, this.state.local) }*/
         return (
             <div>
                 <h1 id="tabelLabel">Weather forecast Location</h1>
@@ -135,15 +134,15 @@ export default class App extends Component {
             </div>
         );
     }
-    async populateData() {
-        const responseweather = await fetch('weatherforecast');
-        const dataweather = await responseweather.json();
-        this.setState({ forecasts: dataweather, loading: false });
+    //async populateData() {
+    //    const responseweather = await fetch('weatherforecast');
+    //    const dataweather = await responseweather.json();
+    //    this.setState({ forecasts: dataweather, loading: false });
 
-        const responselocal = await fetch('location');
-        const datalocal = await responselocal.json();
-        this.setState({ local: datalocal, loading: false });
-    }
+    //    const responselocal = await fetch('location');
+    //    const datalocal = await responselocal.json();
+    //    this.setState({ local: datalocal, loading: false });
+    //}
     async populateWeatherData() {
         const response = await fetch('weatherforecast');
         const data = await response.json();
