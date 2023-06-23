@@ -9,10 +9,7 @@ export default class App extends Component {
     }
 
     componentDidMount() {
-        this.populateWeatherData();
-        this.populateLocationData();
-      //  this.populateData();
-        
+        this.populateData();   
     }
 
     static renderLocationTable(local) {
@@ -134,24 +131,11 @@ export default class App extends Component {
             </div>
         );
     }
-    //async populateData() {
-    //    const responseweather = await fetch('weatherforecast');
-    //    const dataweather = await responseweather.json();
-    //    this.setState({ forecasts: dataweather, loading: false });
-
-    //    const responselocal = await fetch('location');
-    //    const datalocal = await responselocal.json();
-    //    this.setState({ local: datalocal, loading: false });
-    //}
-    async populateWeatherData() {
-        const response = await fetch('weatherforecast');
-        const data = await response.json();
-        this.setState({ forecasts: data, loading: false });
-    }
-
-    async populateLocationData() {
-        const response = await fetch('location');
-        const data = await response.json();
-        this.setState({ local: data, loading: false });
+    async populateData() {
+        const responseweather = await fetch('weatherforecast');
+        const dataweather = await responseweather.json();
+        const responselocal = await fetch('location');
+        const datalocal = await responselocal.json();
+        this.setState({ forecasts: dataweather, local: datalocal, loading: false });
     }
 }
