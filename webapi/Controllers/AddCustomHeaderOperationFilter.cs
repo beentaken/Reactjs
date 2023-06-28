@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
@@ -16,7 +17,11 @@ public class AddCustomHeaderOperationFilter : IOperationFilter
             In = ParameterLocation.Header,
             Description = "custom header description",
             Required = false, // Set to true if the header is required
-            Schema = new OpenApiSchema { Type = "string" }
+            Schema = new OpenApiSchema
+            {
+                Type = "string",
+                Default = new OpenApiString("XXXXXX")
+            },
         });
     }
 }
