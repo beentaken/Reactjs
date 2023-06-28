@@ -17,11 +17,9 @@ export default class App extends Component {
             <table className='table table-striped' aria-labelledby="tabelLabel">
                 <thead>
                     <tr>
-                        <th>Date</th>
-                        <th>Country</th>
-                        <th>Continent</th>
-                        <th>Population</th>
-                        <th>Summary</th>
+                        {Object.keys(local[0]).map(key => (
+                            <th key={key}>{key}</th>
+                        ))}
                     </tr>
                 </thead>
                 <tbody>
