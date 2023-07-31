@@ -64,40 +64,43 @@ export default class App extends Component {
 
     static renderDataTable( forecasts, local ) {
         return (
-            <table className='table table-striped' aria-labelledby="tabelLabel">
+            <><table className='table table-striped' aria-labelledby="tabelLabel">
                 <thead>
                     <tr>
-                        <th>Date</th>
-                        <th>Temp. (C)</th>
-                        <th>Temp. (F)</th>
-                        <th>Summary</th>
-                        <th>Date</th>
-                        <th>Country</th>
-                        <th>Continent</th>
-                        <th>Population</th>
-                        <th>Summary</th>
+                        {Object.keys(local[0]).map(key => (
+                            <th key={key}>{key}</th>
+                        ))}
                     </tr>
                 </thead>
                 <tbody>
-                    {forecasts.map(forecast =>
-                        <tr key={forecast.date}>
+                    {local.map(local => <tr key={local.date}>
+                        <td>{local.date}</td>
+                        <td>{local.country}</td>
+                        <td>{local.continent}</td>
+                        <td>{local.population}</td>
+                        <td>{local.summary}</td>
+                    </tr>
+                    )}
+                </tbody>
+            </table><table className='table table-striped' aria-labelledby="tabelLabel">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Temp. (C)</th>
+                            <th>Temp. (F)</th>
+                            <th>Summary</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {forecasts.map(forecast => <tr key={forecast.date}>
                             <td>{forecast.date}</td>
                             <td>{forecast.temperatureC}</td>
                             <td>{forecast.temperatureF}</td>
                             <td>{forecast.summary}</td>
                         </tr>
-                    )}
-                    {local.map(local =>
-                        <tr key={local.data}>
-                            <td>{local.date}</td>
-                            <td>{local.country}</td>
-                            <td>{local.continent}</td>
-                            <td>{local.population}</td>
-                            <td>{local.summary}</td>
-                        </tr>
-                    )}
-                </tbody>
-            </table>
+                        )}
+                    </tbody>
+                </table></>
         );
     }
 
