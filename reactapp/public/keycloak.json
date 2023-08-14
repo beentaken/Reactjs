@@ -1,0 +1,5 @@
+{
+  "realm": "test",
+  "auth-server-url": "https://mozartdev2.certisifm.com/auth/",
+  "resource": "javascript"
+}

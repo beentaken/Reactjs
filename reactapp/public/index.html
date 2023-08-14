@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
+    <script src="https://172.31.14.57/auth/js/keycloak.js"></script>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
+    <meta name="description"
+          content="Web site created using create-react-app" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -25,8 +24,29 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
-  </head>
-  <body>
+</head>
+<body>
+    <script>
+        // Create a Keycloak instance with appropriate configuration
+        const keycloak = new Keycloak({
+            realm: 'test',
+            url: 'https://mozartdev2.certisifm.com/auth',
+            clientId: 'javascript',
+        });
+
+        keycloak.init({ onLoad: 'login-required' })
+            .then((authenticated) => {
+                if (authenticated) {
+                    // User is authenticated. Access tokens, ID tokens, and other user info are available via `keycloak.token` and `keycloak.idToken`.
+                    console.log('User is authenticated');
+                } else {
+                    console.log('User not authenticated');
+                }
+            })
+            .catch((error) => {
+                console.error('Authentication error', error);
+            });
+    </script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
@@ -39,5 +59,5 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-  </body>
+</body>
 </html>
