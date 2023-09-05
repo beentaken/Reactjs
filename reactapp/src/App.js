@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-
+import { AnotherComponent } from './ui/AnotherComponent';
 export default class App extends Component {
     static displayName = App.name;
 
     constructor(props) {
         super(props);
-        this.state = { forecasts: [], local: [], loading: true };
+        this.state = { forecasts: [], local: [], menu: [], loading: true };
     }
 
     componentDidMount() {
@@ -13,6 +13,7 @@ export default class App extends Component {
     }
 
     static renderLocationTable(local) {
+
         return (
             <table className='table table-striped' aria-labelledby="tabelLabel">
                 <thead>
@@ -114,7 +115,9 @@ export default class App extends Component {
                 </em>
             </p>
         ) : (
-            <>
+                <>
+                    <AnotherComponent data={this.state.menu} />
+                
                 {App.renderForecastsTable(this.state.forecasts)}
                 {App.renderLocationTable(this.state.local)}
                 {App.renderDataTable(this.state.forecasts, this.state.local)}
@@ -131,8 +134,13 @@ export default class App extends Component {
     async populateData() {
         const responseweather = await fetch('weatherforecast');
         const dataweather = await responseweather.json();
+
         const responselocal = await fetch('location');
         const datalocal = await responselocal.json();
-        this.setState({ forecasts: dataweather, local: datalocal, loading: false });
+
+        const responsemenu = await fetch('menu');
+        const datamenu = await responsemenu.json();
+
+        this.setState({ forecasts: dataweather, local: datalocal, menu: datamenu, loading: false });
     }
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://172.31.14.57/auth/js/keycloak.js"></script>
+    <!--<script src="https://172.31.14.57/auth/js/keycloak.js"></script>-->
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -28,24 +28,24 @@
 <body>
     <script>
         // Create a Keycloak instance with appropriate configuration
-        const keycloak = new Keycloak({
-            realm: 'test',
-            url: 'https://mozartdev2.certisifm.com/auth',
-            clientId: 'javascript',
-        });
+        //const keycloak = new Keycloak({
+        //    realm: 'test',
+        //    url: 'https://mozartdev2.certisifm.com/auth',
+        //    clientId: 'javascript',
+        //});
 
-        keycloak.init({ onLoad: 'login-required' })
-            .then((authenticated) => {
-                if (authenticated) {
-                    // User is authenticated. Access tokens, ID tokens, and other user info are available via `keycloak.token` and `keycloak.idToken`.
-                    console.log('User is authenticated');
-                } else {
-                    console.log('User not authenticated');
-                }
-            })
-            .catch((error) => {
-                console.error('Authentication error', error);
-            });
+        //keycloak.init({ onLoad: 'login-required' })
+        //    .then((authenticated) => {
+        //        if (authenticated) {
+        //            // User is authenticated. Access tokens, ID tokens, and other user info are available via `keycloak.token` and `keycloak.idToken`.
+        //            console.log('User is authenticated');
+        //        } else {
+        //            console.log('User not authenticated');
+        //        }
+        //    })
+        //    .catch((error) => {
+        //        console.error('Authentication error', error);
+        //    });
     </script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
