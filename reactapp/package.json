@@ -19,11 +19,13 @@
     "eject": "react-scripts eject",
     "prestart": "node aspnetcore-https && node aspnetcore-react"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "comment": {
+    "eslintConfig": {
+      "extends": [
+        "react-app",
+        "react-app/jest"
+      ]
+    }
   },
   "browserslist": {
     "production": [

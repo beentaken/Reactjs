@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\WeiWenANG(SG)\\source\\repos\\Reactjs\\webapi\\webapi.csproj": {}
+    "C:\\Users\\PC\\Source\\Repos\\Reactjs\\webapi\\webapi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\WeiWenANG(SG)\\source\\repos\\Reactjs\\webapi\\webapi.csproj": {
+    "C:\\Users\\PC\\Source\\Repos\\Reactjs\\webapi\\webapi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\WeiWenANG(SG)\\source\\repos\\Reactjs\\webapi\\webapi.csproj",
+        "projectUniqueName": "C:\\Users\\PC\\Source\\Repos\\Reactjs\\webapi\\webapi.csproj",
         "projectName": "webapi",
-        "projectPath": "C:\\Users\\WeiWenANG(SG)\\source\\repos\\Reactjs\\webapi\\webapi.csproj",
-        "packagesPath": "C:\\Users\\WeiWenANG(SG)\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\WeiWenANG(SG)\\source\\repos\\Reactjs\\webapi\\obj\\",
+        "projectPath": "C:\\Users\\PC\\Source\\Repos\\Reactjs\\webapi\\webapi.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\Source\\Repos\\Reactjs\\webapi\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\WeiWenANG(SG)\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,8 +25,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://pkgs.dev.azure.com/certis-cta/_packaging/certis-cta/nuget/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
@@ -69,7 +71,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
