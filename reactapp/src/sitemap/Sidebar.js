@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Drawer, List, ListItem, ListItemText } from "@material-ui/core";
 
-const Sidebar = ({ pages }) => {
+export const Sidebar = ({ pages }) => {
     return (
         <Drawer
             variant="permanent"
@@ -25,5 +25,3 @@ const Sidebar = ({ pages }) => {
         </Drawer>
     );
 };
-
-export default Sidebar;
