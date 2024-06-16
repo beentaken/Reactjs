@@ -13,22 +13,21 @@ export const AppRouter = () => {
 
     return (
         <BrowserRouter>
-display
             <nav>
                 <ul>
                     <li>
                         <Link to="/">Home</Link>
                     </li>
                     <li>
-                        <Link to="AnotherPage">Another Page</Link>
+                        <Link to="/another-page">Another Page</Link>
                     </li>
                 </ul>
             </nav>
             <Switch>
-                <Route exact path="Home" component={Home} />
-                <Route path="AnotherPage" component={AnotherPage} />
+                <Route exact path="/" component={Home} />
+                <Route path="/another-page" component={AnotherPage} />
+                <Redirect to="/" />
             </Switch>
         </BrowserRouter>
-    ); 
+    );
 };
-
