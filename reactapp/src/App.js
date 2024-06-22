@@ -3,11 +3,17 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
-
+import Sidebar from './sitemap/Sidebar';
 function App() {
+    const pages = [
+        { title: 'Home', path: '/' },
+        { title: 'Another Page', path: '/another-page' },
+        // Add more pages here
+    ];
     return (
-        <div>
             <Router>
+                <h1>Welcome to My App</h1>
+                            <Sidebar pages={pages} />
                 <nav>
                     <ul>
                         <li><Link to="/">Home</Link></li>
@@ -21,7 +27,6 @@ function App() {
                     <Route path="/contact" element={<Contact />} />
                 </Routes>
             </Router>
-        </div>
     );
 }
 
