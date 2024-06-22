@@ -14,4 +14,19 @@
   <ItemGroup>
     <Folder Include="https\" />
   </ItemGroup>
+  <ItemGroup>
+    <TypeScriptConfiguration Remove="Bak\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Bak\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Bak\AppRouter.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Bak\App.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Bak\App.js" />
+  </ItemGroup>
 </Project>

@@ -1,17 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import ReactDOM from 'react-dom';
 import App from './App';
-import './index.css'; // If you have global styles
 
-const container = document.getElementById('root');
-const root = ReactDOM.createRoot(container);
-
-root.render(
+ReactDOM.render(
     <React.StrictMode>
-        <BrowserRouter>
-            <p>React Version: {React.version}</p>
             <App />
-        </BrowserRouter>
-    </React.StrictMode>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
