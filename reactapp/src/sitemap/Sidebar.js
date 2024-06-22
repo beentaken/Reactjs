@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Drawer, List, ListItem, ListItemText } from "@material-ui/core";
+/*import { Drawer, List, ListItem, ListItemText } from '@mui/material';*/
 
 const Sidebar = ({ pages }) => {
-    return (
+    return (<p>React Version: {React.version}</p>
         //<Drawer
         //    variant="permanent"
         //    sx={{
@@ -15,14 +15,14 @@ const Sidebar = ({ pages }) => {
         //        },
         //    }}
         //>
-            <List>
-                {pages.map((page) => (
-                    <ListItem >
-                       
-                    </ListItem>
-                ))}
-            </List>
-/*        </Drawer>*/
+        //    <List>
+        //        {pages.map((page) => (
+        //            <ListItem button key={page.title} component={Link} to={page.path}>
+        //                <ListItemText primary={page.title} />
+        //            </ListItem>
+        //        ))}
+        //    </List>
+        //</Drawer>
     );
 };
 
