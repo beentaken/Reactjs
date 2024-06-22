@@ -3,17 +3,10 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
-import Sidebar from './sitemap/Sidebar';
+
 function App() {
-    const pages = [
-        { title: 'Home', path: '/' },
-        { title: 'Another Page', path: '/another-page' },
-        // Add more pages here
-    ];
     return (
         <Router>
-            <h1>Welcome to My App</h1>
-{/*            <Sidebar pages={pages} />*/}
             <div>
                 <nav>
                     <ul>
