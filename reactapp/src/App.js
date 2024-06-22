@@ -7,7 +7,8 @@ import Sidebar from './sitemap/Sidebar';
 function App() {
     const pages = [
         { title: 'Home', path: '/' },
-        { title: 'Another Page', path: '/another-page' },
+        { title: 'About', path: '/about' },
+        { title: 'Contact', path: '/contact' },
         // Add more pages here
     ];
     return (
