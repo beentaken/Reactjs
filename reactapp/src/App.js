@@ -5,6 +5,7 @@ import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
 import Sidebar from './sitemap/Sidebar';
+import Api  from "./Api";
 import './App.css'; // Add global styles
 
 function App() {
@@ -12,13 +13,13 @@ function App() {
         { title: 'Home', path: '/' },
         { title: 'About', path: '/about' },
         { title: 'Contact', path: '/contact' },
-        { title: 'Another Page', path: '/another-page' },
         // Add more pages here
     ];
 
     return (
         <Router>
             <div className="app-container">
+                <Api />
                 <Sidebar pages={pages} />
                 <div className="main-content">
                     <h1>Welcome to My App</h1>

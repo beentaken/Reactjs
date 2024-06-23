@@ -72,3 +72,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 cd reactapp
 npm install react-router-dom
+npm install @mui/material
+npm install @emotion/react @emotion/styled
+npm install @mui/icons-material @material-ui/core

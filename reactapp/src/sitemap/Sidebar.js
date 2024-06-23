@@ -5,15 +5,28 @@ import './Sidebar.css'; // Add styles for the sidebar
 
 function Sidebar({ pages }) {
     return (
-        <div className="sidebar">
-            <ul>
+
+             <ul>
                 {pages.map((page, index) => (
                     <li key={index}>
                         <Link to={page.path}>{page.title}</Link>
                     </li>
                 ))}
             </ul>
-        </div>
+
+        //<div className="sidebar">
+        //    <nav>
+        //        <ul>
+        //            {pages.map((page, index) => (
+        //                <li key={index}>
+        //                    <Link to={page.path}>{page.title}</Link>
+        //                </li>
+        //            ))}
+
+        //        </ul>
+        //    </nav>
+       
+        //</div>
     );
 }
 

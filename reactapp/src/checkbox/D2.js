@@ -1,13 +1,14 @@
 import React from "react";
 import {
-    makeStyles,
     FormLabel,
     FormControl,
     FormGroup,
     FormControlLabel,
     FormHelperText,
     Checkbox,
-} from "@material-ui/core";
+} from "@mui/icons-material";
+
+import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
     root: {

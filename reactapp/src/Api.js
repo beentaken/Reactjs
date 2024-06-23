@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { AnotherComponent } from './ui/AnotherComponent';
-import { DeleteOutline, Check, History, ExpandMore, TagFaces, Visibility, Fingerprint } from "@material-ui/icons";
-import { CheckboxesGroup } from "./checkbox/D2";
-import { AppRouter } from "./AppRouter";
-export default class App extends Component {
+import { DeleteOutline, Check, History, ExpandMore, TagFaces, Visibility, Fingerprint } from "@mui/icons-material";
+/*import { CheckboxesGroup } from "./checkbox/D2";*/
+
+export default class Api extends Component {
     static displayName = App.name;
 
     constructor(props) {
@@ -140,8 +140,7 @@ export default class App extends Component {
         ) : (
             <>
                 <AnotherComponent data={this.state.menu} />
-                <CheckboxesGroup biooptions={biooption} />
-                <AppRouter />
+                    {/*<CheckboxesGroup biooptions={biooption} />*/}
                 {App.renderForecastsTable(this.state.forecasts)}
                 {App.renderLocationTable(this.state.local)}
                 {App.renderDataTable(this.state.forecasts, this.state.local)}
