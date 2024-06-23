@@ -36,3 +36,31 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* src/App.css */
+.app-container {
+    display: flex;
+}
+
+.main-content {
+    margin-left: 200px; /* Match the sidebar width */
+    padding: 20px;
+    width: calc(100% - 200px); /* Adjust width according to sidebar width */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+}
+
+    nav ul li a {
+        text-decoration: none;
+        color: #007bff;
+    }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
