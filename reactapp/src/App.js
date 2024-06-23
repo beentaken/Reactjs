@@ -19,7 +19,7 @@ function App() {
     return (
         <Router>
             <div className="app-container">
-                <Api />
+        {/*        <Api />*/}
                 <Sidebar pages={pages} />
                 <div className="main-content">
                     <h1>Welcome to My App</h1>
