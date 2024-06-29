@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { AnotherComponent } from './ui/AnotherComponent';
+import { AnotherComponent } from '../ui/AnotherComponent';
 import { DeleteOutline, Check, History, ExpandMore, TagFaces, Visibility, Fingerprint } from "@mui/icons-material";
 /*import { CheckboxesGroup } from "./checkbox/D2";*/
 
 export default class Api extends Component {
-    static displayName = App.name;
+    static displayName = Api.name;
 
     constructor(props) {
         super(props);
@@ -141,9 +141,9 @@ export default class Api extends Component {
             <>
                 <AnotherComponent data={this.state.menu} />
                     {/*<CheckboxesGroup biooptions={biooption} />*/}
-                {App.renderForecastsTable(this.state.forecasts)}
-                {App.renderLocationTable(this.state.local)}
-                {App.renderDataTable(this.state.forecasts, this.state.local)}
+                    {Api.renderForecastsTable(this.state.forecasts)}
+                    {Api.renderLocationTable(this.state.local)}
+                    {Api.renderDataTable(this.state.forecasts, this.state.local)}
             </>
         );
 
