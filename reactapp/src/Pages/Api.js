@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
-import { AnotherComponent } from '../ui/AnotherComponent';
-import { DeleteOutline, Check, History, ExpandMore, TagFaces, Visibility, Fingerprint } from "@mui/icons-material";
+import { AnotherComponent } from '../Pages/AnotherComponent';
+import {
+    DeleteOutline,
+    Check,
+    History,
+    ExpandMore,
+    TagFaces,
+    Visibility,
+    Fingerprint
+} from '@mui/icons-material';
 /*import { CheckboxesGroup } from "./checkbox/D2";*/
 
 export default class Api extends Component {
