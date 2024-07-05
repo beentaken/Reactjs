@@ -18,7 +18,7 @@ const useStyles = styled((theme) => ({
         margin: theme.spacing(3),
     },
 }));
-export const CheckboxesGroup = ({ props }) => {
+ const CheckboxesGroup = ( props) => {
 
     const classes = useStyles();
     const biooptions = props.biooptions;
@@ -82,3 +82,4 @@ export const CheckboxesGroup = ({ props }) => {
         </div>
     );
 }
+export default CheckboxesGroup;

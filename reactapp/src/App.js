@@ -5,8 +5,12 @@ import Home from './Pages/Home';
 import About from './Pages/About';
 import Contact from './Pages/Contact';
 import Sidebar from './sitemap/Sidebar';
-import { D2 } from './ui/D2';
-
+import CheckboxesGroup from './ui/CheckboxesGroup';
+import {
+    TagFaces,
+    Visibility,
+    Fingerprint
+} from '@mui/icons-material';
 import Api from "./Pages/Api";
 import './App.css'; // Add global styles
 
@@ -15,11 +19,30 @@ function App() {
         { title: 'Home', path: '/' },
         { title: 'About', path: '/about' },
         { title: 'Contact', path: '/contact' },
-        { title: 'D2', path: '/D2' },
+        { title: 'CheckboxesGroup', path: '/CheckboxesGroup' },
 /*        { title: 'Api', path: '/api' },*/
         // Add more pages here
     ];
-
+    const biooption = [
+        {
+            name: "Face",
+            id: "0",
+            bool: false,
+            icon: TagFaces,
+        },
+        {
+            name: "Iris",
+            id: "1",
+            bool: false,
+            icon: Visibility,
+        },
+        {
+            name: "Finger",
+            id: "2",
+            bool: true,
+            icon: Fingerprint,
+        },
+    ];
     return (
         <Router>
             <div className="app-container">
@@ -32,16 +55,15 @@ function App() {
                             <li><Link to="/">Home</Link></li>
                             <li><Link to="/about">About</Link></li>
                             <li><Link to="/contact">Contact</Link></li>
-                            <li><Link to="/D2">D2</Link></li>
+                            <li><Link to="/CheckboxesGroup">CheckboxesGroup</Link></li>
                             {/*  <li><Api to="/api">Api</Api></li>*/}
-                            D2
                         </ul>
                     </nav>
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/contact" element={<Contact />} />
-                        <Route path="/D2" element={<D2 />} />
+                        <Route path="/CheckboxesGroup" element={<CheckboxesGroup biooptions={biooption} />} />
    {/*                     <Route path="/api" element={<Api />} />*/}
                     </Routes>
                 </div>
