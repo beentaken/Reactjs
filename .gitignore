@@ -1,0 +1,17 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/node_modules
+/package-lock.json
+/package.json
+/reactapp/README.md
+/reactapp/reactapp.esproj
+/webapi/obj/Debug/net7.0/refint/webapi.dll
+/webapi/obj/Debug/net7.0/apphost.exe
+/webapi/obj/Debug/net7.0/webapi.AssemblyInfo.cs
+/webapi/obj/Debug/net7.0/webapi.AssemblyInfoInputs.cache
+/webapi/obj/Debug/net7.0/webapi.dll
+/webapi/obj/Debug/net7.0/webapi.pdb
+/webapi/obj/Debug/net7.0/webapi.sourcelink.json
+/webapi/obj/Debug/net7.0/ref/webapi.dll

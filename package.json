@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "crypto-js": "^4.1.1",
-    "keycloak-js": "^22.0.1"
-  }
-}
