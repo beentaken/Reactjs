@@ -12,6 +12,9 @@ import {
     Fingerprint
 } from '@mui/icons-material';
 import Api from "./Pages/Api";
+
+import D4 from "./date/D4";
+import D5 from "./date/D5";
 import './App.css'; // Add global styles
 
 function App() {
@@ -20,6 +23,8 @@ function App() {
         { title: 'About', path: '/about' },
         { title: 'Contact', path: '/contact' },
         { title: 'CheckboxesGroup', path: '/CheckboxesGroup' },
+        { title: 'D5', path: '/D5' },
+        { title: 'D4', path: '/D4' },
 /*        { title: 'Api', path: '/api' },*/
         // Add more pages here
     ];
@@ -56,6 +61,8 @@ function App() {
                             <li><Link to="/about">About</Link></li>
                             <li><Link to="/contact">Contact</Link></li>
                             <li><Link to="/CheckboxesGroup">CheckboxesGroup</Link></li>
+                            <li><Link to="/D4">D4</Link></li>
+                            <li><Link to="/D5">D5</Link></li>
                             {/*  <li><Api to="/api">Api</Api></li>*/}
                         </ul>
                     </nav>
@@ -64,6 +71,9 @@ function App() {
                         <Route path="/about" element={<About />} />
                         <Route path="/contact" element={<Contact />} />
                         <Route path="/CheckboxesGroup" element={<CheckboxesGroup biooptions={biooption} />} />
+                        <Route path="/D4" element={<D4 />} />
+                        <Route path="/D5" element={<D5 />} />
+
    {/*                     <Route path="/api" element={<Api />} />*/}
                     </Routes>
                 </div>

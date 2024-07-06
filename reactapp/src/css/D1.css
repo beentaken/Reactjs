@@ -1,0 +1,16 @@
+/* D1.css */
+td.disabled {
+    background-color: #f0f0f0; /* Light gray for disabled dates */
+    color: #888888; /* Gray text for disabled dates */
+    cursor: not-allowed;
+}
+
+td.today {
+    background-color: #a3d1f4; /* Light blue for today */
+}
+
+td.picked {
+    background-color: #ffd700; /* Yellow for picked date */
+}
+
+/* Add other styling as needed */
