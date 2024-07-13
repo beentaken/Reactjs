@@ -5,7 +5,6 @@ import './Sidebar.css'; // Add styles for the sidebar
 
 function Sidebar({ pages }) {
     return (
-
              <ul>
                 {pages.map((page, index) => (
                     <li key={index}>
@@ -13,7 +12,6 @@ function Sidebar({ pages }) {
                     </li>
                 ))}
             </ul>
-
         //<div className="sidebar">
         //    <nav>
         //        <ul>
