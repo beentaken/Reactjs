@@ -4,8 +4,10 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './Pages/Home';
 import About from './Pages/About';
 import Contact from './Pages/Contact';
+import DragDrop from './Pages/DragDrop';
 import Sidebar from './sitemap/Sidebar';
 import CheckboxesGroup from './ui/CheckboxesGroup';
+
 import {
     TagFaces,
     Visibility,
@@ -25,6 +27,8 @@ function App() {
         { title: 'CheckboxesGroup', path: '/CheckboxesGroup' },
         { title: 'D5', path: '/D5' },
         { title: 'D4', path: '/D4' },
+        { title: 'DragDrop', path: '/DragDrop' },
+        
 /*        { title: 'Api', path: '/api' },*/
         // Add more pages here
     ];
@@ -64,6 +68,7 @@ function App() {
                             <li><Link to="/D4">D4</Link></li>
                             <li><Link to="/D5">D5</Link></li>
                             {/*  <li><Api to="/api">Api</Api></li>*/}
+                            <li><Link to="/DragDrop">DragDrop</Link></li>
                         </ul>
                     </nav>
                     <Routes>
@@ -73,7 +78,7 @@ function App() {
                         <Route path="/CheckboxesGroup" element={<CheckboxesGroup biooptions={biooption} />} />
                         <Route path="/D4" element={<D4 />} />
                         <Route path="/D5" element={<D5 />} />
-
+                        <Route path="/DragDrop" element={<DragDrop />} />
    {/*                     <Route path="/api" element={<Api />} />*/}
                     </Routes>
                 </div>
