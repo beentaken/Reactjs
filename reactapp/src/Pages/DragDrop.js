@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import '../css/DragDrop.css';
+
+const BOX_SIZE = 100; // Size of the box
 
 const DragDrop = () => {
     const [boxes, setBoxes] = useState([]);
+    const mainComponentRef = useRef(null);
 
     const handleRightClick = (event) => {
         event.preventDefault();
+
+        const mainComponentRect = mainComponentRef.current.getBoundingClientRect();
         const newBox = {
             id: Date.now(),
-            x: event.clientX,
-            y: event.clientY,
+            x: event.clientX - mainComponentRect.left - BOX_SIZE / 2,
+            y: event.clientY - mainComponentRect.top - BOX_SIZE / 2,
             offsetX: 0,
             offsetY: 0,
         };
@@ -36,7 +41,11 @@ const DragDrop = () => {
     };
 
     return (
-        <div className="background" onContextMenu={handleRightClick}>
+        <div
+            className="background"
+            onContextMenu={handleRightClick}
+            ref={mainComponentRef}
+        >
             {boxes.map(box => (
                 <div
                     key={box.id}
