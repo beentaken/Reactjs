@@ -51,7 +51,10 @@ function ColorPickerWithDialog() {
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>Select a Color</DialogTitle>
                 <DialogContent>
-                    <Grid container spacing={2}>
+                    <Grid
+                         container 
+                        //  spacing={2} //
+                    >
                         {colorOptions.map((option) => (
                             <Grid item xs={4} key={option}>
                                 <Box
@@ -61,8 +64,8 @@ function ColorPickerWithDialog() {
                                         height: 50,
                                         backgroundColor: option,
                                         cursor: 'pointer',
-                                        borderRadius: '50%',
-                                        border: '2px solid #000',
+                                        // borderRadius: '50%',// 
+                                        //   border: '2px solid #000', //
                                     }}
                                 />
                             </Grid>

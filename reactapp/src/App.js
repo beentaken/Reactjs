@@ -7,7 +7,7 @@ import Contact from './Pages/Contact';
 import DragDrop from './Pages/DragDrop';
 import Sidebar from './sitemap/Sidebar';
 import CheckboxesGroup from './ui/CheckboxesGroup';
-
+import ColorPickerWithDialog from './ui/ColorPickerWithDialog';
 import {
     TagFaces,
     Visibility,
@@ -25,6 +25,7 @@ function App() {
         { title: 'About', path: '/about' },
         { title: 'Contact', path: '/contact' },
         { title: 'CheckboxesGroup', path: '/CheckboxesGroup' },
+        { title: 'ColorPickerWithDialog', path: '/ColorPickerWithDialog' },
         { title: 'D5', path: '/D5' },
         { title: 'D4', path: '/D4' },
         { title: 'DragDrop', path: '/DragDrop' },
@@ -55,7 +56,8 @@ function App() {
     return (
         <Router>
             <div className="app-container">
-        {/*        <Api />*/}
+                {/*        <Api />*/}
+                <div className="notices"> </div>
                 <Sidebar pages={pages} />
                 <div className="main-content">
                     <h1>Welcome to My App</h1>
@@ -69,6 +71,7 @@ function App() {
                             <li><Link to="/D5">D5</Link></li>
                             {/*  <li><Api to="/api">Api</Api></li>*/}
                             <li><Link to="/DragDrop">DragDrop</Link></li>
+                            <li><Link to="/ColorPickerWithDialog">ColorPickerWithDialog</Link></li>
                         </ul>
                     </nav>
                     <Routes>
@@ -79,6 +82,7 @@ function App() {
                         <Route path="/D4" element={<D4 />} />
                         <Route path="/D5" element={<D5 />} />
                         <Route path="/DragDrop" element={<DragDrop />} />
+                        <Route path="/ColorPickerWithDialog" element={<ColorPickerWithDialog />} />
    {/*                     <Route path="/api" element={<Api />} />*/}
                     </Routes>
                 </div>
