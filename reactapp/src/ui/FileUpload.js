@@ -6,9 +6,11 @@ const FileUpload = () => {
 
     const postDataToAPI = async (data) => {
         try {
-            const response = await fetch('PostExcel', {
+            const response = await fetch('weatherforecast/PostExcel', {
                 method: 'POST',
-
+                headers: {
+                    'Content-Type': 'application/json',
+                },
                 body: JSON.stringify(data), // Send data as JSON string
             });
 
@@ -18,6 +20,7 @@ const FileUpload = () => {
 
             const responseData = await response.json();
             console.log('Response from server:', responseData);
+            setJsonData(responseData); // Display server response if needed
         } catch (error) {
             console.error('Error posting data:', error);
         }
@@ -33,14 +36,14 @@ const FileUpload = () => {
             reader.onload = function (e) {
                 const fileContent = e.target.result;
 
-                // Assuming this is simple CSV-like data
+                // Convert Excel/CSV content to JSON
                 const jsonResult = excelToJson(fileContent);
 
                 // Now post the converted JSON data
                 postDataToAPI(jsonResult);
             };
 
-            reader.readAsText(file);
+            reader.readAsText(file); // Read file as text
         }
     };
 
