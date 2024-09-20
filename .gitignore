@@ -18,3 +18,5 @@
 /.vs
 /webapi/bin/Debug/net8.0
 /reactapp/node_modules/@emotion
+/webapi/obj/Debug/net8.0
+/webapi/obj
