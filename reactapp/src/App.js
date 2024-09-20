@@ -6,8 +6,10 @@ import About from './Pages/About';
 import Contact from './Pages/Contact';
 import DragDrop from './Pages/DragDrop';
 import Sidebar from './sitemap/Sidebar';
-import CheckboxesGroup from './ui/CheckboxesGroup';
-import ColorPickerWithDialog from './ui/ColorPickerWithDialog';
+
+
+
+import { CheckboxesGroup, ColorPickerWithDialog, FileUpload } from './ui/';
 import {
     TagFaces,
     Visibility,
@@ -29,6 +31,7 @@ function App() {
         { title: 'D5', path: '/D5' },
         { title: 'D4', path: '/D4' },
         { title: 'DragDrop', path: '/DragDrop' },
+        { title: 'FileUpload', path: '/FileUpload' },
         
 /*        { title: 'Api', path: '/api' },*/
         // Add more pages here
@@ -72,6 +75,8 @@ function App() {
                             {/*  <li><Api to="/api">Api</Api></li>*/}
                             <li><Link to="/DragDrop">DragDrop</Link></li>
                             <li><Link to="/ColorPickerWithDialog">ColorPickerWithDialog</Link></li>
+                            <li><Link to="/FileUpload ">FileUpload</Link></li>
+
                         </ul>
                     </nav>
                     <Routes>
@@ -83,6 +88,7 @@ function App() {
                         <Route path="/D5" element={<D5 />} />
                         <Route path="/DragDrop" element={<DragDrop />} />
                         <Route path="/ColorPickerWithDialog" element={<ColorPickerWithDialog />} />
+                        <Route path="/FileUpload" element={<FileUpload />} />
    {/*                     <Route path="/api" element={<Api />} />*/}
                     </Routes>
                 </div>

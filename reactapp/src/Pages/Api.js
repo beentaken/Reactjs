@@ -189,7 +189,8 @@ export default class Api extends Component {
                 <p>This component demonstrates fetching data from the server.</p>
                 {contents}
                 <input
-                    accept="image/*"
+                    accept="
+/*"
                     id="input-file"
                     onChange={handleFileInput}
                     type="file"
