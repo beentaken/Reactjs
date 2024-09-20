@@ -4,6 +4,25 @@ import { Button } from '@mui/material';
 const FileUpload = () => {
     const [jsonData, setJsonData] = useState(null);
 
+    const postDataToAPI = async (data) => {
+        try {
+            const response = await fetch('PostExcel', {
+                method: 'POST',
+
+                body: JSON.stringify(data), // Send data as JSON string
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to post data');
+            }
+
+            const responseData = await response.json();
+            console.log('Response from server:', responseData);
+        } catch (error) {
+            console.error('Error posting data:', error);
+        }
+    };
+
     // Function to handle file upload
     const handleFileUpload = (event) => {
         const file = event.target.files[0];
@@ -11,11 +30,14 @@ const FileUpload = () => {
         if (file) {
             const reader = new FileReader();
 
-            // Read file as text (for simple Excel CSV-like content)
             reader.onload = function (e) {
                 const fileContent = e.target.result;
+
+                // Assuming this is simple CSV-like data
                 const jsonResult = excelToJson(fileContent);
-                setJsonData(jsonResult);
+
+                // Now post the converted JSON data
+                postDataToAPI(jsonResult);
             };
 
             reader.readAsText(file);

@@ -16,3 +16,5 @@
 /webapi/obj/Debug/net7.0/webapi.sourcelink.json
 /webapi/obj/Debug/net7.0/ref/webapi.dll
 /.vs
+/webapi/bin/Debug/net8.0
+/reactapp/node_modules/@emotion

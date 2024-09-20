@@ -9,11 +9,8 @@ import {
     Visibility,
     Fingerprint
 } from '@mui/icons-material';
-/*import { CheckboxesGroup } from "./checkbox/D2";*/
 
-export default class Api extends Component {
-    static displayName = Api.name;
-
+class Api extends Component {
     constructor(props) {
         super(props);
         this.state = { forecasts: [], local: [], menu: [], loading: true };
@@ -75,66 +72,18 @@ export default class Api extends Component {
 
     static renderDataTable(forecasts, local) {
         return (
-            <><table className='table table-striped' aria-labelledby="tabelLabel">
-                <thead>
-                    <tr>
-                        {Object.keys(local[0]).map(key => (
-                            <th key={key}>{key}</th>
-                        ))}
-                    </tr>
-                </thead>
-                <tbody>
-                    {local.map(local => <tr key={local.date}>
-                        <td>{local.date}</td>
-                        <td>{local.country}</td>
-                        <td>{local.continent}</td>
-                        <td>{local.population}</td>
-                        <td>{local.summary}</td>
-                    </tr>
-                    )}
-                </tbody>
-            </table><table className='table table-striped' aria-labelledby="tabelLabel">
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Temp. (C)</th>
-                            <th>Temp. (F)</th>
-                            <th>Summary</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {forecasts.map(forecast => <tr key={forecast.date}>
-                            <td>{forecast.date}</td>
-                            <td>{forecast.temperatureC}</td>
-                            <td>{forecast.temperatureF}</td>
-                            <td>{forecast.summary}</td>
-                        </tr>
-                        )}
-                    </tbody>
-                </table></>
+            <>
+                {this.renderLocationTable(local)}
+                {this.renderForecastsTable(forecasts)}
+            </>
         );
     }
 
     render() {
         const biooption = [
-            {
-                name: "Face",
-                id: "0",
-                bool: false,
-                icon: TagFaces,
-            },
-            {
-                name: "Iris",
-                id: "1",
-                bool: false,
-                icon: Visibility,
-            },
-            {
-                name: "Finger",
-                id: "2",
-                bool: true,
-                icon: Fingerprint,
-            },
+            { name: "Face", id: "0", bool: false, icon: TagFaces },
+            { name: "Iris", id: "1", bool: false, icon: Visibility },
+            { name: "Finger", id: "2", bool: true, icon: Fingerprint }
         ];
 
         let contents = this.state.loading ? (
@@ -148,10 +97,7 @@ export default class Api extends Component {
         ) : (
             <>
                 <AnotherComponent data={this.state.menu} />
-                    {/*<CheckboxesGroup biooptions={biooption} />*/}
-                    {Api.renderForecastsTable(this.state.forecasts)}
-                    {Api.renderLocationTable(this.state.local)}
-                    {Api.renderDataTable(this.state.forecasts, this.state.local)}
+                {Api.renderDataTable(this.state.forecasts, this.state.local)}
             </>
         );
 
@@ -181,7 +127,8 @@ export default class Api extends Component {
             }
             const blob = new Blob([byteArray], { type: fileType });
 
-        }
+            // Handle the blob further if needed
+        };
 
         return (
             <div>
@@ -189,8 +136,7 @@ export default class Api extends Component {
                 <p>This component demonstrates fetching data from the server.</p>
                 {contents}
                 <input
-                    accept="
-/*"
+                    accept="*/*"
                     id="input-file"
                     onChange={handleFileInput}
                     type="file"
@@ -210,6 +156,7 @@ export default class Api extends Component {
             </div>
         );
     }
+
     async populateData() {
         const responseweather = await fetch('weatherforecast');
         const dataweather = await responseweather.json();
@@ -223,3 +170,5 @@ export default class Api extends Component {
         this.setState({ forecasts: dataweather, local: datalocal, menu: datamenu, loading: false });
     }
 }
+
+export default Api;
