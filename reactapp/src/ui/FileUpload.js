@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from '@mui/material';
-
+import * as XLSX from 'xlsx';
 const FileUpload = () => {
     const [jsonData, setJsonData] = useState(null);
 
@@ -45,6 +45,33 @@ const FileUpload = () => {
 
             reader.readAsText(file); // Read file as text
         }
+        ///////////////////////////
+
+        const reader1 = new FileReader();
+
+        // On file load, read the file's content
+        reader1.onload = (e) => {
+            const data = new Uint8Array(e.target.result);
+            const workbook = XLSX.read(data, { type: 'array' });
+
+            // Get the first sheet's name
+            const firstSheetName = workbook.SheetNames[0];
+            // Get the first sheet
+            const worksheet = workbook.Sheets[firstSheetName];
+            // Convert the sheet to JSON
+            const json = XLSX.utils.sheet_to_json(worksheet);
+
+            // Set the converted JSON data
+            setJsonData(json);
+        };
+
+        reader1.readAsArrayBuffer(file);
+
+
+
+
+
+
     };
 
     // Convert CSV-like Excel file to JSON manually

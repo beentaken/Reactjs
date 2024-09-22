@@ -32,12 +32,12 @@ namespace webapi.Controllers
 
         // Use POST to accept data from the client
         [HttpPost("PostExcel")]
-        public IActionResult PostExcel([FromBody] List<Dictionary<string, string>> excelData) // Expecting a list of dictionaries
+        public IActionResult PostExcel([FromBody] object excelData) // Expecting a list of dictionaries
         {
-            if (excelData == null || excelData.Count == 0)
-            {
-                return BadRequest("No data received.");
-            }
+            //if (excelData == null || excelData.Count == 0)
+            //{
+            //    return BadRequest("No data received.");
+            //}
 
             // Process data (for example, log it, save to DB, etc.)
             _logger.LogInformation("Received Excel data: {@excelData}", excelData);
@@ -45,12 +45,5 @@ namespace webapi.Controllers
             // Return the received data as a response
             return Ok(new { ReceivedData = excelData });
         }
-    }
-
-    public class WeatherForecast
-    {
-        public DateOnly Date { get; set; }
-        public int TemperatureC { get; set; }
-        public string Summary { get; set; }
     }
 }
