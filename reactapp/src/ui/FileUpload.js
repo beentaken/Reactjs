@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Button } from '@mui/material';
 import * as XLSX from 'xlsx';
 const FileUpload = () => {
+    const [jsonDataCvs, setJsonDataCvs] = useState(null);
+    const [jsonDataExcel, setJsonDataExcel] = useState(null);
     const [jsonData, setJsonData] = useState(null);
-
     const postDataToAPI = async (data) => {
         try {
             const response = await fetch('weatherforecast/PostExcel', {
@@ -20,14 +21,14 @@ const FileUpload = () => {
 
             const responseData = await response.json();
             console.log('Response from server:', responseData);
-            setJsonData(responseData); // Display server response if needed
+
         } catch (error) {
             console.error('Error posting data:', error);
         }
     };
 
     // Function to handle file upload
-    const handleFileUpload = (event) => {
+    const handleFileUploadCvs = (event) => {
         const file = event.target.files[0];
 
         if (file) {
@@ -41,35 +42,37 @@ const FileUpload = () => {
 
                 // Now post the converted JSON data
                 postDataToAPI(jsonResult);
+                setJsonDataCvs(jsonResult);
             };
 
             reader.readAsText(file); // Read file as text
         }
-        ///////////////////////////
+    };
 
-        const reader1 = new FileReader();
+    const handleFileUploadExcel = (event) => {
+        const file = event.target.files[0];
+        if (file) {
 
-        // On file load, read the file's content
-        reader1.onload = (e) => {
-            const data = new Uint8Array(e.target.result);
-            const workbook = XLSX.read(data, { type: 'array' });
+            const reader1 = new FileReader();
 
-            // Get the first sheet's name
-            const firstSheetName = workbook.SheetNames[0];
-            // Get the first sheet
-            const worksheet = workbook.Sheets[firstSheetName];
-            // Convert the sheet to JSON
-            const json = XLSX.utils.sheet_to_json(worksheet);
+            // On file load, read the file's content
+            reader1.onload = (e) => {
+                const data = new Uint8Array(e.target.result);
+                const workbook = XLSX.read(data, { type: 'array' });
 
-            // Set the converted JSON data
-            setJsonData(json);
-        };
+                // Get the first sheet's name
+                const firstSheetName = workbook.SheetNames[0];
+                // Get the first sheet
+                const worksheet = workbook.Sheets[firstSheetName];
+                // Convert the sheet to JSON
+                const json = XLSX.utils.sheet_to_json(worksheet);
+                postDataToAPI(json);
+                // Set the converted JSON data
+                setJsonDataExcel(json);
+            };
 
-        reader1.readAsArrayBuffer(file);
-
-
-
-
+            reader1.readAsArrayBuffer(file);
+        }
 
 
     };
@@ -97,11 +100,24 @@ const FileUpload = () => {
     return (
         <div>
             <input
-                accept=".csv, .xls, .xlsx"
+                accept=".csv"
                 style={{ display: 'none' }}
                 id="excel-file-upload"
                 type="file"
-                onChange={handleFileUpload}
+                onChange={handleFileUploadCvs}
+            />
+            <label htmlFor="excel-file-upload">
+                <Button variant="contained" component="span">
+                    Upload CSV File
+                </Button>
+            </label>
+
+            <input
+                accept=".xls, .xlsx"
+                style={{ display: 'none' }}
+                id="excel-file-upload"
+                type="file"
+                onChange={handleFileUploadExcel}
             />
             <label htmlFor="excel-file-upload">
                 <Button variant="contained" component="span">
@@ -110,9 +126,15 @@ const FileUpload = () => {
             </label>
 
             {/* Display JSON data if available */}
-            {jsonData && (
+            {jsonDataCvs && (
                 <pre style={{ marginTop: '20px' }}>
-                    {JSON.stringify(jsonData, null, 2)}
+                    {JSON.stringify(jsonDataCvs, null, 2)}
+                </pre>
+            )}
+            {/* Display JSON data if available */}
+            {jsonDataExcel && (
+                <pre style={{ marginTop: '20px' }}>
+                    {JSON.stringify(jsonDataExcel, null, 2)}
                 </pre>
             )}
         </div>

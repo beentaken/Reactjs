@@ -1,3 +1,4 @@
+using GmsDb;
 using Microsoft.AspNetCore.Mvc;
 
 namespace webapi.Controllers
@@ -32,7 +33,7 @@ namespace webapi.Controllers
 
         // Use POST to accept data from the client
         [HttpPost("PostExcel")]
-        public IActionResult PostExcel([FromBody] object excelData) // Expecting a list of dictionaries
+        public IActionResult PostExcel([FromBody] Staff excelData) // Expecting a list of dictionaries
         {
             //if (excelData == null || excelData.Count == 0)
             //{

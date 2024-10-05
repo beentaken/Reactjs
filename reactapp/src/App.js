@@ -71,7 +71,7 @@ function App() {
                             <li><Link to="/CheckboxesGroup">CheckboxesGroup</Link></li>
                             <li><Link to="/D4">D4</Link></li>
                             <li><Link to="/D5">D5</Link></li>
-                            <li><Api to="/Api">Api</Api></li>
+                            <li><Link to="/Api">Api</Link></li>
                             <li><Link to="/DragDrop">DragDrop</Link></li>
                             <li><Link to="/ColorPickerWithDialog">ColorPickerWithDialog</Link></li>
                             <li><Link to="/FileUpload ">FileUpload</Link></li>
