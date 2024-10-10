@@ -56,6 +56,13 @@ if (app.Environment.IsDevelopment())
         c.EnableFilter();
     });
 }
+else
+{
+    app.UseExceptionHandler("/Home/Error");
+    // Disable HTTPS redirection
+    // app.UseHttpsRedirection();
+}
+
 
 app.UseAuthentication();
 
@@ -78,5 +85,7 @@ var webSocketOptions = new WebSocketOptions
 app.UseWebSockets(webSocketOptions);
 app.UseEndpoints(endpoints =>
 {
-    endpoints.MapControllers();
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
 });
