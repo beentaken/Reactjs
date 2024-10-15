@@ -1,6 +1,6 @@
-﻿using System;   
+﻿using System;
 
-namespace webapi
+namespace webapi.Model
 {
     public class Menu
     {

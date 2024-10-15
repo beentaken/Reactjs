@@ -1,5 +1,5 @@
-using GmsDb;
 using Microsoft.AspNetCore.Mvc;
+using webapi.Model;
 
 namespace webapi.Controllers
 {

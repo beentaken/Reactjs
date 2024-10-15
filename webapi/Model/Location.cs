@@ -1,6 +1,6 @@
-﻿using System;   
+﻿using System;
 
-namespace webapi
+namespace webapi.Model
 {
     public class Location
     {
@@ -10,7 +10,7 @@ namespace webapi
 
         public required string Continent { get; set; }
         private static Random random = new Random();
-        public int Population { get; set ; }
+        public int Population { get; set; }
 
         public Location()
         {

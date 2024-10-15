@@ -1,4 +1,4 @@
-﻿namespace GmsDb
+﻿namespace webapi.Model
 {
     using System;
     using System.ComponentModel.DataAnnotations;
